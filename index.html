@@ -1,4 +1,435 @@
-hi, i'm f.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fábio Galiano - Frontend & Fullstack Developer based in Portugal">
+    <title>Fábio Galiano - Frontend & Fullstack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-card game: <a href="/wnrs">we are not strangers</a>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #111827;
+            line-height: 1.6;
+        }
 
+        .container {
+            max-width: 595px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-line {
+            width: 100%;
+            height: 10px;
+            background-color: #f8bd07;
+        }
+
+        .content {
+            padding: 40px 32px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .name-section h1 {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 50px;
+            color: #111827;
+            margin: 0;
+        }
+
+        .name-section .dot {
+            color: #f8bd07;
+        }
+
+        .info-section {
+            text-align: right;
+            min-width: 236px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .location {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 14px;
+        }
+
+        .contact-info {
+            font-size: 11px;
+            color: #4b5563;
+        }
+
+        .contact-info a {
+            color: #4b5563;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: #f8bd07;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #455a6f;
+            margin-bottom: 10px;
+            font-variation-settings: 'wdth' 75;
+        }
+
+        /* Experience Section */
+        .experience-section {
+            margin-bottom: 25px;
+        }
+
+        .job-entry {
+            margin-bottom: 20px;
+        }
+
+        .job-header {
+            display: flex;
+            gap: 5px;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .job-position {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .company {
+            font-size: 13px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .job-duration {
+            font-size: 10px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .job-duration .duration-time {
+            font-style: italic;
+            font-size: 9px;
+        }
+
+        .job-details {
+            padding-left: 5px;
+        }
+
+        .job-details ul {
+            list-style-position: outside;
+            padding-left: 15px;
+        }
+
+        .job-details li {
+            font-size: 10px;
+            line-height: 11px;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        /* Education Section */
+        .education-section {
+            margin-bottom: 25px;
+        }
+
+        .degree-header {
+            display: flex;
+            gap: 5px;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .degree-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .degree-type {
+            font-size: 13px;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        .university {
+            font-size: 11px;
+            color: #111827;
+            padding-left: 10px;
+            margin-bottom: 2px;
+        }
+
+        .university-location {
+            font-size: 10px;
+            color: #6b7280;
+        }
+
+        /* Personal Projects Section */
+        .projects-section {
+            margin-bottom: 25px;
+        }
+
+        .project-entry {
+            padding-left: 10px;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-size: 13px;
+            color: #111827;
+        }
+
+        .project-status {
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 5px;
+            padding-left: 10px;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 30px;
+            padding-left: 10px;
+        }
+
+        .skill-item {
+            font-size: 10px;
+            color: #111827;
+        }
+
+        /* Section Wrappers */
+        section {
+            padding: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            .container {
+                max-width: 100%;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            header {
+                flex-direction: column;
+            }
+
+            .name-section h1 {
+                font-size: 42px;
+                line-height: 40px;
+            }
+
+            .info-section {
+                text-align: left;
+                width: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-line"></div>
+        <div class="content">
+            <header>
+                <div class="name-section">
+                    <h1>fábio galiano<span class="dot">.</span></h1>
+                </div>
+                <div class="info-section">
+                    <div class="job-title">frontend & fullstack developer</div>
+                    <div class="location">Portugal • ready to relocate</div>
+                    <div class="contact-info">
+                        <div><a href="mailto:work@fabiogaliano.com">work@fabiogaliano.com</a></div>
+                        <div><a href="https://github.com/fabiogaliano" target="_blank">github.com/fabiogaliano</a></div>
+                        <div><a href="https://linkedin.com/in/fabiogaliano" target="_blank">linkedin.com/in/fabiogaliano</a></div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="experience-section">
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-position">co-founder / cto</span>
+                        <span class="company">• tourflow.pt</span>
+                    </div>
+                    <div class="job-duration">
+                        August - now <span class="duration-time">— (4 months)</span>
+                    </div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Launched MVP to production, piloting with 3 tour operators managing daily operations</li>
+                            <li>Product Ownership - E2E: user research to design, full-stack development to devops, or operations</li>
+                            <li>Built with PocketBase, React, TypeScript, TanStack Router, Tailwind and shadcn/ui; self-hosted on automated CI/CD pipeline</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-position">frontend developer</span>
+                        <span class="company">• vintage city tours</span>
+                    </div>
+                    <div class="job-duration">
+                        Jan - Jul 2025 <span class="duration-time">— (4 months) • Remote</span>
+                    </div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Achieved 10x performance improvements by migrating from Wix to custom Astro solution with Tailwind</li>
+                            <li>Eliminated €400/year in costs by migrating to free-tier infrastructure: Custom Cal.com booking integration, Cloudflare Pages and Functions, Umami</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="job-entry">
+                    <div class="job-header">
+                        <span class="job-position">frontend developer</span>
+                        <span class="company">• mercedes-benz.io</span>
+                    </div>
+                    <div class="job-duration">
+                        Jul 2020 - Jan 2024 <span class="duration-time">— (4 months) • Remote</span>
+                    </div>
+                    <div class="job-details">
+                        <ul>
+                            <li>Contributed to global Mercedes Me customer portal serving millions of users for vehicle management, user settings, and connected services (micro-frontend architecture)</li>
+                            <li>Vue 2/3, Redux, Vite: Framework migrations, new feature development, and refactoring across multiple frontend modules</li>
+                            <li>Angular 1.6: Legacy system maintenance and bug fixes for older customer-facing applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="education-section">
+                <h2 class="section-title">Education</h2>
+                <div class="degree-header">
+                    <span class="degree-title">computer engineering</span>
+                    <span class="degree-type">• bachelor degree</span>
+                </div>
+                <div class="university">
+                    Universidade Autónoma de Lisboa <span class="university-location">• Lisbon, Portugal</span>
+                </div>
+                <div class="university">
+                    Akademia Górniczo-Hutnicza (AGH) <span class="university-location">• semester • Kraków, Poland</span>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <h2 class="section-title">Personal Projects</h2>
+                <div class="project-entry">
+                    <span class="project-title">"Liked Songs" AI Sorter for Spotify</span>
+                    <span class="project-status">• very close to mvp, tourflow took priority</span>
+                </div>
+                <div class="project-entry">
+                    <span class="project-title">MCP/AI Assistant for tana.inc</span>
+                    <span class="project-status">• working prototype</span>
+                </div>
+                <div class="project-entry">
+                    <span class="project-title">Job Listings AI Parser CLI</span>
+                    <span class="project-status">• mvp</span>
+                </div>
+            </section>
+
+            <section class="skills-section">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Frontend / Fullstack</div>
+                    <div class="skills-grid">
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Vue.js</span>
+                        <span class="skill-item">Typescript</span>
+                        <span class="skill-item">Tailwind</span>
+                        <span class="skill-item">Astro</span>
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
+                        <span class="skill-item">React Router / Remix</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Backend / Runtime / Database</div>
+                    <div class="skills-grid">
+                        <span class="skill-item">Bun</span>
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">Express</span>
+                        <span class="skill-item">REST APIs</span>
+                        <span class="skill-item">Python</span>
+                        <span class="skill-item">AWS (SQS)</span>
+                        <span class="skill-item">Cloudflare</span>
+                        <span class="skill-item">Postgres</span>
+                        <span class="skill-item">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Build Tools & Development</div>
+                    <div class="skills-grid">
+                        <span class="skill-item">git</span>
+                        <span class="skill-item">Vite</span>
+                        <span class="skill-item">Vitest</span>
+                        <span class="skill-item">Github Actions</span>
+                        <span class="skill-item">Claude Code</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
