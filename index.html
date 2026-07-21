@@ -5,510 +5,710 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Fábio Galiano - Fullstack Product Engineer based in Portugal"
+      content="Fábio Galiano — fullstack product engineer. Builds and runs whole products end to end."
     />
-    <title>Fábio Galiano - Fullstack Product Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    <title>Fábio Galiano — Fullstack Product Engineer</title>
     <style>
-      * {
+      @font-face {
+        font-family: "PP Editorial New";
+        src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal";
+        src: url("fonts/PPNeueMontreal-Book.otf") format("opentype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal";
+        src: url("fonts/PPNeueMontreal-Medium.otf") format("opentype");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "PP Neue Montreal";
+        src: url("fonts/PPNeueMontreal-Italic.otf") format("opentype");
+        font-weight: 400;
+        font-style: italic;
+        font-display: swap;
+      }
+
+      /* Sized in mm/pt so screen and print agree. A4 is 210×297mm — an earlier
+         version used 595px, which is A4's width in *points*, and rendered the
+         whole page at 75% scale. */
+      :root {
+        --page-w: 210mm;
+        --page-h: 297mm;
+        --pad-x: 15mm;
+
+        --paper: #eed2ce;
+        --ink: #16171d;
+        --acc: #d8796e;
+        --body: #3a3b44;
+        --mut: #82838e;
+        --rule: #e9e3e0;
+        --page-bg: #fdfbfa;
+
+        /* Rail geometry — the vertical line sits at --rail-x, entry content
+           starts at --rail-pad, and the year column right-aligns before it. */
+        --rail-x: 15mm;
+        --rail-pad: 21mm;
+        --dot: 2.2mm;
+
+        --s-1: 1.9mm;
+        --s-2: 2.6mm;
+        --s-3: 4mm;
+        --s-4: 7mm;
+      }
+
+      *,
+      *::before,
+      *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
+      html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
       body {
-        font-family: "Open Sans", sans-serif;
-        background-color: #f5f5f5;
-        color: #111827;
-        line-height: 1.6;
+        font-family: "PP Neue Montreal", system-ui, sans-serif;
+        background: #e8e4e1;
+        color: var(--body);
+        font-size: 9.5pt;
+        line-height: 1.5;
+        text-wrap: pretty;
+        padding: 8mm 0;
       }
 
-      .container {
-        max-width: 595px;
+      .page {
+        width: var(--page-w);
+        min-height: var(--page-h);
         margin: 0 auto;
-        background-color: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background: var(--page-bg);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 1px rgba(0, 0, 0, 0.06),
+          0 1px 2px -1px rgba(0, 0, 0, 0.06),
+          0 8px 24px -4px rgba(0, 0, 0, 0.1);
       }
 
-      .top-line {
-        width: 100%;
-        height: 10px;
-        background-color: #f8bd07;
-      }
+      /* ---- masthead ---- */
 
-      .content {
-        padding: 40px 32px;
-      }
-
-      /* Header */
-      header {
+      .mast {
+        background: var(--ink);
+        color: var(--paper);
+        padding: 10mm var(--pad-x) 8mm;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 30px;
-        gap: 20px;
+        align-items: flex-end;
+        gap: 8mm;
       }
 
-      .name-section h1 {
-        font-size: 56px;
-        font-weight: 600;
-        line-height: 50px;
-        color: #111827;
-        margin: 0;
+      h1 {
+        font-family: "PP Editorial New", Georgia, serif;
+        font-size: 30pt;
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -0.4px;
+        color: #f7ebe8;
+        text-wrap: balance;
       }
 
-      .name-section .dot {
-        color: #f8bd07;
+      h1 .dot {
+        color: var(--acc);
       }
 
-      .info-section {
+      .role {
+        font-size: 9.4pt;
+        font-weight: 500;
+        color: var(--paper);
+        margin-top: var(--s-2);
+      }
+
+      .whereabouts {
+        font-size: 7.6pt;
+        color: rgba(238, 210, 206, 0.6);
+        margin-top: 0.5mm;
+      }
+
+      .channels {
         text-align: right;
-        min-width: 236px;
+        font-size: 7.6pt;
+        line-height: 1.7;
+        white-space: nowrap;
+        color: rgba(238, 210, 206, 0.85);
       }
 
-      .job-title {
-        font-size: 16px;
-        font-weight: 600;
-        color: #111827;
-        margin-bottom: 4px;
-      }
-
-      .location {
-        font-size: 13px;
-        color: #6b7280;
-        margin-bottom: 14px;
-      }
-
-      .contact-info {
-        font-size: 11px;
-        color: #4b5563;
-      }
-
-      .contact-info a {
-        color: #4b5563;
+      .channels a {
+        color: inherit;
         text-decoration: none;
       }
 
-      .contact-info a:hover {
-        color: #f8bd07;
+      .channels a:hover {
+        color: var(--acc);
       }
 
-      /* Section Titles */
-      .section-title {
-        font-size: 18px;
-        font-weight: 300;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: #455a6f;
-        margin-bottom: 10px;
-        font-variation-settings: "wdth" 75;
+      /* ---- body ---- */
+
+      .sheet {
+        flex: 1;
+        padding: 7mm var(--pad-x) 8mm;
       }
 
-      /* Experience Section */
-      .experience-section {
-        margin-bottom: 25px;
+      .pitch {
+        font-size: 10.4pt;
+        line-height: 1.5;
+        color: var(--ink);
       }
 
-      .job-entry {
-        margin-bottom: 20px;
+      .pitch strong {
+        font-weight: 500;
+        color: var(--acc);
       }
 
-      .job-header {
-        display: flex;
-        gap: 5px;
-        align-items: baseline;
-        margin-bottom: 2px;
-      }
-
-      .job-position {
-        font-size: 15px;
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .company {
-        font-size: 13px;
-        color: #6b7280;
-        font-style: italic;
-      }
-
-      .job-duration {
-        font-size: 10px;
-        color: #6b7280;
-        margin-bottom: 5px;
-      }
-
-      .job-duration .duration-time {
-        font-style: italic;
-        font-size: 9px;
-      }
-
-      .job-details {
-        padding-left: 5px;
-      }
-
-      .job-details ul {
-        list-style-position: outside;
-        padding-left: 15px;
-      }
-
-      .job-details li {
-        font-size: 10px;
-        line-height: 11px;
-        color: #111827;
-        margin-bottom: 4px;
-      }
-
-      .tech-stack {
-        font-size: 10px;
-        color: #6b7280;
-        padding-left: 5px;
-        margin-top: 4px;
-      }
-
-      .tech-stack strong {
-        font-weight: 600;
-        color: #455a6f;
-      }
-
-      /* Education Section */
-      .education-section {
-        margin-bottom: 25px;
-      }
-
-      .degree-header {
-        display: flex;
-        gap: 5px;
-        align-items: baseline;
-        margin-bottom: 4px;
-      }
-
-      .degree-title {
-        font-size: 15px;
-        font-weight: 600;
-        color: #111827;
-      }
-
-      .degree-type {
-        font-size: 13px;
-        color: #6b7280;
-        font-style: italic;
-      }
-
-      .university {
-        font-size: 11px;
-        color: #111827;
-        padding-left: 10px;
-        margin-bottom: 2px;
-      }
-
-      .university-location {
-        font-size: 10px;
-        color: #6b7280;
-      }
-
-      /* Personal Projects Section */
-      .projects-section {
-        margin-bottom: 25px;
-      }
-
-      .project-entry {
-        padding-left: 10px;
-        margin-bottom: 3px;
-      }
-
-      .project-title {
-        font-size: 13px;
-        color: #111827;
-      }
-
-      .project-status {
-        font-size: 12px;
-        color: #6b7280;
-      }
-
-      /* Skills Section */
-      .skills-section {
-        margin-bottom: 20px;
-      }
-
-      .skill-category {
-        margin-bottom: 15px;
-      }
-
-      .skill-category-title {
-        font-size: 11px;
-        font-weight: 600;
-        color: #111827;
-        margin-bottom: 5px;
-        padding-left: 10px;
-      }
-
-      .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px 30px;
-        padding-left: 10px;
-      }
-
-      .skill-item {
-        font-size: 10px;
-        color: #111827;
-      }
-
-      /* Section Wrappers */
       section {
-        padding: 10px;
+        margin-top: var(--s-4);
       }
 
-      /* Responsive Design */
-      @media (max-width: 640px) {
-        .container {
-          max-width: 100%;
-        }
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: var(--s-2);
+        font-size: 7.4pt;
+        font-weight: 500;
+        /* Kept low deliberately: at 1.4px Chrome emitted each letter as its own
+           text run, so PDF extraction returned "WO R K" / "S K I L LS" and ATS
+           section detection broke. */
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--mut);
+        margin-bottom: var(--s-2);
+      }
 
-        .content {
-          padding: 30px 20px;
-        }
+      .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--rule);
+      }
 
-        header {
-          flex-direction: column;
-        }
+      /* ---- rail ---- */
 
-        .name-section h1 {
-          font-size: 42px;
-          line-height: 40px;
-        }
+      .rail {
+        position: relative;
+        padding-left: var(--rail-pad);
+        margin-top: var(--s-3);
+      }
 
-        .info-section {
-          text-align: left;
+      .rail::before {
+        content: "";
+        position: absolute;
+        left: var(--rail-x);
+        top: 1.6mm;
+        bottom: 2mm;
+        width: 1px;
+        background: var(--rule);
+      }
+
+      .entry {
+        position: relative;
+        margin-bottom: var(--s-4);
+      }
+
+      .entry:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Dot is centred on the rail line: rail-x − half the dot, expressed
+         relative to the entry's own left edge at --rail-pad. */
+      .entry::before {
+        content: "";
+        position: absolute;
+        left: calc(var(--rail-x) - var(--rail-pad) - var(--dot) / 2);
+        top: 1.3mm;
+        width: var(--dot);
+        height: var(--dot);
+        border-radius: 50%;
+        background: var(--acc);
+      }
+
+      /* Hollow dot marks past roles, so the rail itself carries the ranking
+         that a separate "selected work" section used to. */
+      .entry.past::before {
+        background: var(--page-bg);
+        box-shadow: inset 0 0 0 0.5mm #d3cecb;
+      }
+
+      /* Two stacked dates read as an unrelated jumble without a connector —
+         at 12.5mm "Jul 2020" and "Jan 2024" each wrapped mid-date, so the
+         gutter showed four loose numbers. The en-dash before the end date binds
+         start and end into one range; the wider gutter + per-part nowrap keep
+         each date whole on its own line. */
+      .year {
+        position: absolute;
+        left: calc(-1 * var(--rail-pad) - 5mm);
+        top: 0.7mm;
+        width: 17.5mm;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        font-size: 7.2pt;
+        font-weight: 500;
+        line-height: 1.32;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--mut);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .year .ys,
+      .year .ye {
+        white-space: nowrap;
+      }
+
+      .year .ye::before {
+        content: "\00a0\2013\00a0";
+        color: #c3bdb9;
+      }
+
+      /* Coral "now" echoes the filled dot on the rail: both mark a live role,
+         so the two ongoing entries separate at a glance from the closed one. */
+      .year .now {
+        color: var(--acc);
+      }
+
+      .entry-name {
+        font-size: 11.2pt;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      /* No underline: the filled coral dot on the rail already marks these two
+         as live, so an accent underline said the same thing twice. */
+      .entry-name a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      @media screen {
+        .entry-name a:hover {
+          color: var(--acc);
+        }
+      }
+
+      /* Role was 8.1pt muted italic — dimmer than the description beneath it,
+         which inverted the hierarchy: job title is one of the few items a
+         6-second scan actually lands on. Now upright, body-coloured, larger. */
+      .entry-kind {
+        font-size: 9.2pt;
+        color: var(--body);
+      }
+
+      .entry-kind::before {
+        content: "·";
+        color: var(--mut);
+        margin: 0 0.4em 0 0.15em;
+      }
+
+      .entry-sub {
+        font-size: 8.6pt;
+        color: var(--mut);
+        margin-top: 1.5mm;
+      }
+
+      ul {
+        list-style: none;
+        margin-top: var(--s-2);
+      }
+
+      li {
+        position: relative;
+        padding-left: 3.2mm;
+        margin-bottom: var(--s-1);
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        left: 0.3mm;
+        top: 0.55em;
+        width: 2.2px;
+        height: 2.2px;
+        border-radius: 50%;
+        background: #cfcac7;
+      }
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      .stack {
+        font-size: 8pt;
+        color: var(--mut);
+        margin-top: var(--s-2);
+        padding-left: 3.2mm;
+      }
+
+      /* Faint middots match the year range dash, so the whole timeline shares
+         one quiet connector; the tech names read as a single list without a
+         "STACK:" label competing with the role above (Skills already names the
+         toolset — here it is just per-project context). */
+      .stack .sep {
+        color: #c3bdb9;
+      }
+
+      /* The indent exists to align the stack list with bullet text. Past roles
+         are prose with no bullets, so there is nothing to align to — flush left. */
+      .entry:not(:has(ul)) .stack {
+        padding-left: 0;
+      }
+
+      .entry.past .entry-sub {
+        margin-top: 1mm;
+      }
+
+      /* The break is on the rail so the timeline stays unbroken, but it is not
+         a role — no name line, and the note sits flush with its year. */
+      .entry.break {
+        margin-bottom: var(--s-4);
+      }
+
+      .entry.break .entry-note {
+        margin-top: 0;
+        color: var(--mut);
+      }
+
+      /* Past roles state their contribution as prose rather than a one-item
+         bullet list; this reads at the same weight as bullet text. */
+      .entry-note {
+        margin-top: var(--s-2);
+        color: var(--body);
+      }
+
+      /* ---- skills / education ---- */
+
+      .skills {
+        display: grid;
+        grid-template-columns: 23mm 1fr;
+        gap: var(--s-2) var(--s-3);
+        font-size: 9pt;
+      }
+
+      .skills dt {
+        font-weight: 500;
+        color: var(--ink);
+        font-size: 8.1pt;
+      }
+
+      .edu {
+        font-size: 8.9pt;
+      }
+
+      .edu b {
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .print-hint {
+        width: var(--page-w);
+        margin: 0 auto 4mm;
+        font-size: 8pt;
+        color: #9a9490;
+        text-align: right;
+      }
+
+      .print-hint kbd {
+        font-family: inherit;
+        background: var(--page-bg);
+        border-radius: 3px;
+        padding: 1px 5px;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Scoped to `screen` — the print viewport is 210mm wide, so an unscoped
+         breakpoint would collapse the layout inside the PDF. */
+      @media screen and (max-width: 230mm) {
+        body {
+          padding: 0;
+        }
+        .page,
+        .print-hint {
           width: 100%;
+          min-height: 0;
+          box-shadow: none;
         }
+        .print-hint {
+          display: none;
+        }
+        :root {
+          --pad-x: 6mm;
+          --rail-x: 0mm;
+          --rail-pad: 5mm;
+        }
+        .mast {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: var(--s-2);
+          padding: 8mm 6mm;
+        }
+        .channels {
+          text-align: left;
+        }
+        .rail::before {
+          display: none;
+        }
+        .entry::before {
+          display: none;
+        }
+        .year {
+          position: static;
+          width: auto;
+          text-align: left;
+          display: block;
+          margin-bottom: 0.8mm;
+        }
+        /* No rail in this view, so the range collapses onto one inline line. */
+        .year .ye::before {
+          color: var(--mut);
+        }
+        .skills {
+          grid-template-columns: 1fr;
+          gap: var(--s-1) 0;
+        }
+        .skills dd {
+          margin-bottom: var(--s-2);
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
       }
 
       @media print {
+        /* Without this the ink masthead and coral accents drop out — browsers
+           strip backgrounds when printing by default. */
+        html,
         body {
-          background-color: white;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background: #fff;
+          padding: 0;
         }
-
-        .container {
+        .page {
+          width: 210mm;
+          height: 297mm;
           box-shadow: none;
-          max-width: 100%;
+          margin: 0;
+        }
+        .print-hint {
+          display: none;
+        }
+        .entry {
+          break-inside: avoid;
+        }
+        a {
+          text-decoration: none;
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="top-line"></div>
-      <div class="content">
-        <header>
-          <div class="name-section">
-            <h1>fábio galiano<span class="dot">.</span></h1>
-          </div>
-          <div class="info-section">
-            <div class="job-title">fullstack product engineer</div>
-            <div class="location">Portugal • open to relocate</div>
-            <div class="contact-info">
-              <div>
-                <a href="mailto:work@fabiogaliano.com">work@fabiogaliano.com</a>
-              </div>
-              <div>
-                <a href="https://github.com/fabiogaliano" target="_blank"
-                  >github.com/fabiogaliano</a
-                >
-              </div>
-              <div>
-                <a href="https://linkedin.com/in/fabiogaliano" target="_blank"
-                  >linkedin.com/in/fabiogaliano</a
-                >
-              </div>
-            </div>
-          </div>
-        </header>
+    <p class="print-hint">
+      A4 &middot; save as PDF with <kbd>&#8984;</kbd> <kbd>P</kbd>
+    </p>
 
-        <section class="experience-section">
-          <div class="job-entry">
-            <div class="job-header">
-              <span class="job-position">founding product engineer</span>
-              <span class="company">• tourflow.pt</span>
-            </div>
-            <div class="job-duration">
-              August 2025 - now
-            </div>
-            <div class="job-details">
-              <ul>
-                <li>
-                  Full product ownership spanning research → design → full-stack
-                  development → DevOps → customer operations — to serving 5 tour
-                  operators in production
-                </li>
-              </ul>
-              <div class="tech-stack">
-                <strong>STACK:</strong> PocketBase, React, TypeScript, TanStack Router, Tailwind, shadcn/ui
-              </div>
-            </div>
+    <div class="page">
+      <header class="mast">
+        <div>
+          <h1>fábio galiano<span class="dot">.</span></h1>
+          <div class="role">fullstack product engineer</div>
+          <div class="whereabouts">Portugal &middot; open to relocate</div>
+        </div>
+        <div class="channels">
+          <div>
+            <a href="mailto:work@fabiogaliano.com">work@fabiogaliano.com</a>
           </div>
-
-          <div class="job-entry">
-            <div class="job-header">
-              <span class="job-position">frontend developer</span>
-              <span class="company">• vintage city tours</span>
-            </div>
-            <div class="job-duration">
-              Jan - Jul 2025 <span class="duration-time">— (5 months)</span>
-            </div>
-            <div class="job-details">
-              <ul>
-                <li>
-                  Rebuilt and redesign of a tour booking website achieving 4x
-                  booking increase plus a 10x performance improvement, and
-                  €400/year cost savings by migrating from Wix to custom Astro
-                  solution.
-                </li>
-              </ul>
-              <div class="tech-stack">
-                <strong>STACK:</strong> Astro, Cal.com, Tailwind, Cloudflare Pages & Functions, Umami Analytics
-              </div>
-            </div>
-          </div>
-
-          <div class="job-entry">
-            <div class="job-header">
-              <span class="job-position">frontend developer</span>
-              <span class="company">• mercedes-benz.io</span>
-            </div>
-            <div class="job-duration">
-              Jul 2020 - Jan 2024
-              <span class="duration-time">— (3 years and 6 months)</span>
-            </div>
-            <div class="job-details">
-              <ul>
-                <li>
-                  Contributed to Mercedes Me global customer portal serving
-                  millions of users for vehicle management, connected services,
-                  and account settings.
-                </li>
-                <li>
-                  Worked across micro-frontend architecture: framework migrations
-                  (Vue 2 → Vue 3), new feature development, refactoring, and
-                  performance optimization
-                </li>
-              </ul>
-              <div class="tech-stack">
-                <strong>STACK:</strong> Vue 2/3, Redux, Lerna, Vite, Angular 1.6
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="education-section">
-          <h2 class="section-title">Education</h2>
-          <div class="degree-header">
-            <span class="degree-title">computer engineering</span>
-            <span class="degree-type">• bachelor degree</span>
-          </div>
-          <div class="university">
-            Universidade Autónoma de Lisboa
-            <span class="university-location">• Lisbon, Portugal</span>
-          </div>
-          <div class="university">
-            Akademia Górniczo-Hutnicza (AGH)
-            <span class="university-location">• semester • Kraków, Poland</span>
-          </div>
-        </section>
-
-        <section class="projects-section">
-          <h2 class="section-title">Personal Projects</h2>
-          <div class="project-entry">
-            <span class="project-title">liked.music</span>
-            <span class="project-status"
-              >• music exploratory tool leveraging AI for our liked songs</span
+          <div><a href="https://fabiogaliano.com">fabiogaliano.com</a></div>
+          <div>
+            <a href="https://github.com/fabiogaliano"
+              >github.com/fabiogaliano</a
             >
           </div>
-          <div class="job-details" style="padding-left: 10px; margin-top: 4px;">
-            <ul>
-              <li>
-                Discovers emotional patterns in your music and intelligently
-                matches songs to playlists using multifactor scoring (semantic
-                similarity, audio features, genre alignment, vector embeddings)
-              </li>
-            </ul>
-            <div class="tech-stack">
-              <strong>STACK:</strong> TanStack Start (SSR), ai/sdk, React, TypeScript, Supabase, Last.fm, SSE for real-time progress
+          <div>
+            <a href="https://linkedin.com/in/fabiogaliano"
+              >linkedin.com/in/fabiogaliano</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <div class="sheet">
+        <p class="pitch">
+          I build and run whole products, from the first idea to daily use. I
+          talk to users, design, and engineer the full stack and infrastructure.
+          I run two right now, both live. Tourflow runs the daily operations of
+          two tour companies. The other is hearted, an AI music product that
+          matches a listener's Spotify liked songs to their playlists, and
+          builds new ones from them. Before this, I spent three and a half years
+          at Mercedes-Benz.io, building their Me portal for vehicle owners.
+        </p>
+
+        <section>
+          <h2 class="section-title">Work</h2>
+          <div class="rail">
+            <div class="entry">
+              <span class="year"
+                ><span class="ys">2026</span
+                ><span class="ye now">now</span></span
+              >
+              <div>
+                <span class="entry-name"
+                  ><a href="https://hearted.music">hearted.music</a></span
+                >
+                <span class="entry-kind">Product engineer · own product</span>
+              </div>
+              <div class="entry-sub">
+                Consumer AI app for curating a Spotify library.
+              </div>
+              <ul>
+                <li>
+                  An LLM reads each song's lyrics and builds its profile. Each
+                  playlist has a profile too, built from its songs and a
+                  matching intent written in natural language. The matching
+                  itself is a deterministic weighted score over embeddings,
+                  audio features, and genre, so the same library always gives
+                  the same matches.
+                </li>
+                <li>
+                  I run it end to end in production: an edge app on Cloudflare
+                  Workers, a background worker for the enrichment pipeline, and
+                  self-hosted Postgres that is also the job queue.
+                </li>
+              </ul>
+              <div class="stack">
+                TypeScript <span class="sep">·</span> React 19
+                <span class="sep">·</span> TanStack Start
+                <span class="sep">·</span> Cloudflare Workers
+                <span class="sep">·</span> Postgres + pgvector
+                <span class="sep">·</span> Vercel AI SDK
+                <span class="sep">·</span> Stripe
+              </div>
+            </div>
+
+            <div class="entry">
+              <span class="year"
+                ><span class="ys">Jan 2025</span
+                ><span class="ye now">now</span></span
+              >
+              <div>
+                <span class="entry-name"
+                  ><a href="https://tourflow.pt">tourflow.pt</a></span
+                >
+                <span class="entry-kind"
+                  >Product engineer · client product</span
+                >
+              </div>
+              <div class="entry-sub">
+                Operations software for tour operators.
+              </div>
+              <ul>
+                <li>
+                  Vintage City Tours hired me for a booking site. I saw their
+                  operations ran on manual processes and also proposed software
+                  to run them — their whole business now runs on it, and so
+                  does a partner company: driver scheduling, trip logs,
+                  commissions, settlements, and client payments, with schedules
+                  pushed straight to drivers' phones.
+                </li>
+                <li>
+                  The booking site itself, migrated from Wix to Astro on
+                  Cloudflare, loads 10x faster and quadrupled booking
+                  conversion.
+                </li>
+              </ul>
+              <div class="stack">
+                TypeScript <span class="sep">·</span> React 19
+                <span class="sep">·</span> TanStack Router
+                <span class="sep">·</span> Astro
+                <span class="sep">·</span> PocketBase
+                <span class="sep">·</span> SQLite
+                <span class="sep">·</span> Stripe <span class="sep">·</span>
+                Docker
+              </div>
+            </div>
+
+            <div class="entry past break">
+              <span class="year"><span class="ys">2024</span></span>
+              <div class="entry-note">
+                Career break. I stepped away to rest and reassess my
+                priorities.
+              </div>
+            </div>
+
+            <div class="entry past">
+              <span class="year"
+                ><span class="ys">Jul 2020</span
+                ><span class="ye">Jan 2024</span></span
+              >
+              <div>
+                <span class="entry-name">Mercedes-Benz.io</span>
+                <span class="entry-kind">Frontend developer</span>
+              </div>
+              <div class="entry-sub">
+                Mercedes Me, the customer portal for millions of vehicle owners,
+                built at their digital product company.
+              </div>
+              <div class="entry-note">
+                We built the portal's micro-frontends from scratch in Vue 2, then
+                migrated them to Vue 3, and worked on new features, refactoring,
+                and performance.
+              </div>
+              <div class="stack">
+                Vue 2/3 <span class="sep">·</span> Redux
+                <span class="sep">·</span> Lerna <span class="sep">·</span> Vite
+                <span class="sep">·</span> Angular 1.6
+              </div>
             </div>
           </div>
         </section>
 
-        <section class="skills-section">
+        <section>
           <h2 class="section-title">Skills</h2>
+          <dl class="skills">
+            <dt>Product</dt>
+            <dd>
+              End-to-end ownership · customer discovery &amp; scoping · UI/UX
+            </dd>
 
-          <div class="skill-category">
-            <div class="skill-category-title">Frontend</div>
-            <div class="skills-grid">
-              <span class="skill-item">Typescript</span>
-              <span class="skill-item">React</span>
-              <span class="skill-item">Vue.js</span>
-              <span class="skill-item">Tailwind</span>
-              <span class="skill-item">Astro</span>
-              <span class="skill-item">HTML</span>
-              <span class="skill-item">CSS</span>
-            </div>
-          </div>
+            <dt>AI</dt>
+            <dd>
+              Multi-provider LLM pipelines · embeddings &amp; pgvector · prompt
+              &amp; evaluation iteration · agentic coding workflows
+            </dd>
 
-          <div class="skill-category">
-            <div class="skill-category-title">Fullstack</div>
-            <div class="skills-grid">
-              <span class="skill-item">React Router / Remix</span>
-              <span class="skill-item">TanStack Start</span>
-            </div>
-          </div>
+            <dt>Engineering</dt>
+            <dd>
+              TypeScript · React · Vue · Node · Bun · TanStack · Tailwind ·
+              Postgres · SQLite · Docker · Cloudflare Workers · Playwright
+            </dd>
+          </dl>
+        </section>
 
-          <div class="skill-category">
-            <div class="skill-category-title">Backend / Runtime</div>
-            <div class="skills-grid">
-              <span class="skill-item">Bun</span>
-              <span class="skill-item">Node.js</span>
-              <span class="skill-item">REST APIs</span>
-              <span class="skill-item">Python</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Database</div>
-            <div class="skills-grid">
-              <span class="skill-item">Postgres</span>
-              <span class="skill-item">SQLite</span>
-              <span class="skill-item">Pocketbase</span>
-              <span class="skill-item">Supabase</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">DevOps</div>
-            <div class="skills-grid">
-              <span class="skill-item">Cloudflare</span>
-              <span class="skill-item">AWS (SQS)</span>
-              <span class="skill-item">CI/CD (Github Actions)</span>
-              <span class="skill-item">Self-Host (Coolify)</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-category-title">Tools</div>
-            <div class="skills-grid">
-              <span class="skill-item">git</span>
-              <span class="skill-item">Vite</span>
-              <span class="skill-item">Vitest</span>
-              <span class="skill-item">Claude Code</span>
-              <span class="skill-item">Windsurf</span>
-              <span class="skill-item">Figma (learning)</span>
-            </div>
+        <section>
+          <h2 class="section-title">Education</h2>
+          <div class="edu">
+            <b>BSc Computer Engineering</b> · Universidade Autónoma de Lisboa,
+            Lisbon · exchange semester at AGH Kraków, Poland
           </div>
         </section>
       </div>
