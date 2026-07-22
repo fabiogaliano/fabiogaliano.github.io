@@ -553,7 +553,7 @@
           talk to users, design, and engineer the full stack and infrastructure.
           Two are live today: Tourflow, the software two tour companies run
           their daily operations on, and hearted, an AI music product that
-          organizes a listener's Spotify library. Before going independent, I
+          organizes a listener's Spotify library. Before, I
           spent three and a half years at Mercedes-Benz.io, building their Me
           portal for vehicle owners.
         </p>
@@ -578,14 +578,14 @@
               <ul>
                 <li>
                   Designed a matching engine that uses an LLM to profile each
-                  song from its lyrics and each playlist from its songs plus a
-                  natural-language intent, then picks matches with a
-                  deterministic weighted score over embeddings, audio features,
+                  song from its lyrics, then matches it against playlists — each
+                  an aggregate of its songs plus a natural-language intent — with
+                  a deterministic weighted score over embeddings, audio features,
                   and genre.
                 </li>
                 <li>
                   Run it solo in production: an edge app on Cloudflare Workers,
-                  a background worker for the enrichment pipeline, and
+                  a background worker for the song enrichment pipeline, and
                   self-hosted Postgres that is also the job queue.
                 </li>
               </ul>
@@ -593,6 +593,7 @@
                 TypeScript <span class="sep">·</span> React 19
                 <span class="sep">·</span> TanStack Start
                 <span class="sep">·</span> Cloudflare Workers
+                <span class="sep">·</span> Bun
                 <span class="sep">·</span> Postgres + pgvector
                 <span class="sep">·</span> Vercel AI SDK
                 <span class="sep">·</span> Stripe
@@ -623,8 +624,8 @@
                   push notifications on a PWA.
                 </li>
                 <li>
-                  Quadrupled booking conversion and made pages load 10x faster
-                  by migrating the site from Wix to Astro on Cloudflare.
+                  On the site, quadrupled booking conversion and made pages load 10x faster
+                  by migrating from Wix to Astro, served on Cloudflare.
                 </li>
               </ul>
               <div class="stack">
@@ -660,7 +661,7 @@
                 built at their digital product company.
               </div>
               <div class="entry-note">
-                Built the portal's micro-frontends from scratch in Vue 2,
+                Worked on the portal's micro-frontends from scratch in Vue 2,
                 replacing the legacy Angular app, then migrated everything to
                 Vue 3 alongside continuous feature work, refactoring, and
                 performance improvements.
