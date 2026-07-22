@@ -169,11 +169,6 @@
         color: var(--ink);
       }
 
-      .pitch strong {
-        font-weight: 500;
-        color: var(--acc);
-      }
-
       section {
         margin-top: var(--s-4);
       }
@@ -556,11 +551,11 @@
         <p class="pitch">
           I build and run whole products, from the first idea to daily use. I
           talk to users, design, and engineer the full stack and infrastructure.
-          I run two right now, both live. Tourflow runs the daily operations of
-          two tour companies. The other is hearted, an AI music product that
-          matches a listener's Spotify liked songs to their playlists, and
-          builds new ones from them. Before this, I spent three and a half years
-          at Mercedes-Benz.io, building their Me portal for vehicle owners.
+          Two are live today: Tourflow, the software two tour companies run
+          their daily operations on, and hearted, an AI music product that
+          organizes a listener's Spotify library. Before going independent, I
+          spent three and a half years at Mercedes-Benz.io, building their Me
+          portal for vehicle owners.
         </p>
 
         <section>
@@ -582,16 +577,15 @@
               </div>
               <ul>
                 <li>
-                  An LLM reads each song's lyrics and builds its profile. Each
-                  playlist has a profile too, built from its songs and a
-                  matching intent written in natural language. The matching
-                  itself is a deterministic weighted score over embeddings,
-                  audio features, and genre, so the same library always gives
-                  the same matches.
+                  Designed a matching engine that uses an LLM to profile each
+                  song from its lyrics and each playlist from its songs plus a
+                  natural-language intent, then picks matches with a
+                  deterministic weighted score over embeddings, audio features,
+                  and genre.
                 </li>
                 <li>
-                  I run it end to end in production: an edge app on Cloudflare
-                  Workers, a background worker for the enrichment pipeline, and
+                  Run it solo in production: an edge app on Cloudflare Workers,
+                  a background worker for the enrichment pipeline, and
                   self-hosted Postgres that is also the job queue.
                 </li>
               </ul>
@@ -623,17 +617,14 @@
               </div>
               <ul>
                 <li>
-                  Vintage City Tours hired me for a booking site. I saw their
-                  operations ran on manual processes and also proposed software
-                  to run them — their whole business now runs on it, and so
-                  does a partner company: driver scheduling, trip logs,
-                  commissions, settlements, and client payments, with schedules
-                  pushed straight to drivers' phones.
+                  Turned a booking-site contract into the operations platform
+                  two tour companies now run on daily: driver scheduling, trip
+                  logs, commissions, settlements, and client payments, with
+                  push notifications on a PWA.
                 </li>
                 <li>
-                  The booking site itself, migrated from Wix to Astro on
-                  Cloudflare, loads 10x faster and quadrupled booking
-                  conversion.
+                  Quadrupled booking conversion and made pages load 10x faster
+                  by migrating the site from Wix to Astro on Cloudflare.
                 </li>
               </ul>
               <div class="stack">
@@ -650,8 +641,8 @@
             <div class="entry past break">
               <span class="year"><span class="ys">2024</span></span>
               <div class="entry-note">
-                Career break. I stepped away to rest and reassess my
-                priorities.
+                Career break: I stopped for a year to rest and figure out what
+                I actually wanted going forward.
               </div>
             </div>
 
@@ -665,18 +656,18 @@
                 <span class="entry-kind">Frontend developer</span>
               </div>
               <div class="entry-sub">
-                Mercedes Me, the customer portal for millions of vehicle owners,
+                Mercedes Me, the customer portal for vehicle owners,
                 built at their digital product company.
               </div>
               <div class="entry-note">
-                We built the portal's micro-frontends from scratch in Vue 2, then
-                migrated them to Vue 3, and worked on new features, refactoring,
-                and performance.
+                Built the portal's micro-frontends from scratch in Vue 2,
+                replacing the legacy Angular app, then migrated everything to
+                Vue 3 alongside continuous feature work, refactoring, and
+                performance improvements.
               </div>
               <div class="stack">
                 Vue 2/3 <span class="sep">·</span> Redux
                 <span class="sep">·</span> Lerna <span class="sep">·</span> Vite
-                <span class="sep">·</span> Angular 1.6
               </div>
             </div>
           </div>
