@@ -326,20 +326,23 @@
       }
 
       li {
-        position: relative;
         padding-left: 3.2mm;
         margin-bottom: var(--s-1);
       }
 
+      /* A real bullet glyph (not a CSS-drawn dot) so PDF text extraction sees
+         where each bullet starts — ATS parsers split roles and count bullets on
+         the leading marker, and an invisible background dot left them blind. Set
+         inline (not absolute) and hung into the left padding with a negative
+         margin, so it shares the first line's baseline and extracts as part of
+         that line ("• Designed…") rather than as its own orphan line. */
       li::before {
-        content: "";
-        position: absolute;
-        left: 0.3mm;
-        top: 0.55em;
-        width: 2.2px;
-        height: 2.2px;
-        border-radius: 50%;
-        background: #cfcac7;
+        content: "•";
+        display: inline-block;
+        width: 3.2mm;
+        margin-left: -3.2mm;
+        color: #cfcac7;
+        font-size: 7pt;
       }
 
       li:last-child {
@@ -559,7 +562,7 @@
         </p>
 
         <section>
-          <h2 class="section-title">Work</h2>
+          <h2 class="section-title">Experience</h2>
           <div class="rail">
             <div class="entry">
               <span class="year"
@@ -572,9 +575,9 @@
                 >
                 <span class="entry-kind">Product engineer · own product</span>
               </div>
-              <div class="entry-sub">
+              <p class="entry-sub">
                 Consumer AI app for curating a Spotify library.
-              </div>
+              </p>
               <ul>
                 <li>
                   Designed a matching engine that uses an LLM to profile each
@@ -584,12 +587,12 @@
                   and genre.
                 </li>
                 <li>
-                  Run it solo in production: an edge app on Cloudflare Workers,
-                  a background worker for the song enrichment pipeline, and
-                  self-hosted Postgres that is also the job queue.
+                  Operate it solo in production: an edge app on Cloudflare
+                  Workers, a background worker for the song enrichment pipeline,
+                  and self-hosted Postgres that is also the job queue.
                 </li>
               </ul>
-              <div class="stack">
+              <p class="stack">
                 TypeScript <span class="sep">·</span> React 19
                 <span class="sep">·</span> TanStack Start
                 <span class="sep">·</span> Cloudflare Workers
@@ -597,7 +600,7 @@
                 <span class="sep">·</span> Postgres + pgvector
                 <span class="sep">·</span> Vercel AI SDK
                 <span class="sep">·</span> Stripe
-              </div>
+              </p>
             </div>
 
             <div class="entry">
@@ -613,9 +616,9 @@
                   >Product engineer · client product</span
                 >
               </div>
-              <div class="entry-sub">
+              <p class="entry-sub">
                 Operations software for tour operators.
-              </div>
+              </p>
               <ul>
                 <li>
                   Turned a booking-site contract into the operations platform
@@ -624,11 +627,12 @@
                   push notifications on a PWA.
                 </li>
                 <li>
-                  On the site, quadrupled booking conversion and made pages load 10x faster
-                  by migrating from Wix to Astro, served on Cloudflare.
+                  Migrated the site from Wix to Astro, quadrupling booking
+                  conversion and making pages load 10x faster, served on
+                  Cloudflare.
                 </li>
               </ul>
-              <div class="stack">
+              <p class="stack">
                 TypeScript <span class="sep">·</span> React 19
                 <span class="sep">·</span> TanStack Router
                 <span class="sep">·</span> Astro
@@ -636,15 +640,15 @@
                 <span class="sep">·</span> SQLite
                 <span class="sep">·</span> Stripe <span class="sep">·</span>
                 Docker
-              </div>
+              </p>
             </div>
 
             <div class="entry past break">
               <span class="year"><span class="ys">2024</span></span>
-              <div class="entry-note">
+              <p class="entry-note">
                 Career break: I stopped for a year to rest and figure out what
                 I actually wanted going forward.
-              </div>
+              </p>
             </div>
 
             <div class="entry past">
@@ -656,20 +660,22 @@
                 <span class="entry-name">Mercedes-Benz.io</span>
                 <span class="entry-kind">Frontend developer</span>
               </div>
-              <div class="entry-sub">
+              <p class="entry-sub">
                 Mercedes Me, the customer portal for vehicle owners,
-                built at their digital product company.
-              </div>
-              <div class="entry-note">
-                Worked on the portal's micro-frontends from scratch in Vue 2,
-                replacing the legacy Angular app, then migrated everything to
-                Vue 3 alongside continuous feature work, refactoring, and
-                performance improvements.
-              </div>
-              <div class="stack">
+                made at their digital product company.
+              </p>
+              <ul>
+                <li>
+                  Built the portal's micro-frontends from scratch in Vue 2,
+                  replacing the legacy Angular app, then migrated everything to
+                  Vue 3 alongside continuous feature work, refactoring, and
+                  performance improvements.
+                </li>
+              </ul>
+              <p class="stack">
                 Vue 2/3 <span class="sep">·</span> Redux
                 <span class="sep">·</span> Lerna <span class="sep">·</span> Vite
-              </div>
+              </p>
             </div>
           </div>
         </section>

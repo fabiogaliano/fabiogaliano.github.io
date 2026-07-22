@@ -2,6 +2,7 @@
   "name": "fabiogaliano-cv",
   "private": true,
   "scripts": {
-    "dev": "bun index.html"
+    "dev": "bun index.html",
+    "build:pdf": "bun scripts/build-pdf.ts"
   }
 }
