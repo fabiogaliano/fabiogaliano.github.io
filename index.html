@@ -3,713 +3,195 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Fábio Galiano — fullstack product engineer. Builds and runs whole products end to end."
-    />
-    <title>Fábio Galiano — Fullstack Product Engineer</title>
+    <meta name="description" content="Fábio Galiano — software engineer, TypeScript, React and Vue. Portugal, open to relocation within the EU." />
+    <title>Fábio Galiano — Software Engineer</title>
     <style>
-      @font-face {
-        font-family: "PP Editorial New";
-        src: url("fonts/PPEditorialNew-Regular.otf") format("opentype");
-        font-weight: 400;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PP Neue Montreal";
-        src: url("fonts/PPNeueMontreal-Book.otf") format("opentype");
-        font-weight: 400;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PP Neue Montreal";
-        src: url("fonts/PPNeueMontreal-Medium.otf") format("opentype");
-        font-weight: 500;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "PP Neue Montreal";
-        src: url("fonts/PPNeueMontreal-Italic.otf") format("opentype");
-        font-weight: 400;
-        font-style: italic;
-        font-display: swap;
-      }
+      @font-face { font-family: "PP Editorial New"; src: url("fonts/PPEditorialNew-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+      @font-face { font-family: "PP Neue Montreal"; src: url("fonts/PPNeueMontreal-Book.otf") format("opentype"); font-weight: 400; font-display: swap; }
+      @font-face { font-family: "PP Neue Montreal"; src: url("fonts/PPNeueMontreal-Medium.otf") format("opentype"); font-weight: 500; font-display: swap; }
+      @font-face { font-family: "PP Neue Montreal"; src: url("fonts/PPNeueMontreal-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
 
-      /* Sized in mm/pt so screen and print agree. A4 is 210×297mm — an earlier
-         version used 595px, which is A4's width in *points*, and rendered the
-         whole page at 75% scale. */
-      :root {
-        --page-w: 210mm;
-        --page-h: 297mm;
-        --pad-x: 15mm;
+      :root { --ink: #16171d; --body: #3a3b44; --mut: #6f707b; --rule: #e6e1de; --acc: #d8796e; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; }
+      body { background: #e8e4e1; padding: 8mm 0; font-family: "PP Neue Montreal", system-ui, sans-serif; }
 
-        --paper: #eed2ce;
-        --ink: #16171d;
-        --acc: #d8796e;
-        --body: #3a3b44;
-        --mut: #82838e;
-        --rule: #e9e3e0;
-        --page-bg: #fdfbfa;
+      .cv { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 9mm 14mm 9mm; background: #fff; color: var(--body);
+            font-size: 9.5pt; line-height: 1.4; text-wrap: pretty;
+            box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 8px 24px -4px rgba(0,0,0,.1); }
 
-        /* Rail geometry — the vertical line sits at --rail-x, entry content
-           starts at --rail-pad, and the year column right-aligns before it. */
-        --rail-x: 15mm;
-        --rail-pad: 21mm;
-        --dot: 2.2mm;
+      .download { width: 210mm; margin: 0 auto 3mm; text-align: right; font-size: 10pt; }
+      .download a { color: var(--ink); }
 
-        --s-1: 1.9mm;
-        --s-2: 2.6mm;
-        --s-3: 4mm;
-        --s-4: 7mm;
-      }
+      .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; padding-bottom: 2.5mm; border-bottom: 1.5px solid var(--ink); }
+      h1 { font-family: "PP Editorial New", Georgia, serif; font-size: 20pt; font-weight: 400; line-height: 1; letter-spacing: -0.3px; color: var(--ink); }
+      .headline { font-size: 11pt; font-weight: 500; color: var(--ink); margin-top: 1.6mm; }
+      .where { font-size: 8.4pt; color: var(--mut); margin-top: 1.2mm; }
+      .contacts { text-align: right; font-size: 8.4pt; line-height: 1.6; white-space: nowrap; }
+      .contacts a, .stack a { color: inherit; text-decoration: none; }
+      a:hover, a:focus-visible { text-decoration: underline; }
 
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      .summary { font-size: 9.5pt; color: var(--ink); margin-top: 2.8mm; line-height: 1.4; }
 
-      html {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+      h2 { font-size: 8pt; font-weight: 500; text-transform: uppercase; letter-spacing: .6px; color: var(--mut); margin-top: 3mm; padding-bottom: 1mm; border-bottom: 1px solid var(--rule); break-after: avoid; }
 
-      body {
-        font-family: "PP Neue Montreal", system-ui, sans-serif;
-        background: #e8e4e1;
-        color: var(--body);
-        font-size: 9.5pt;
-        line-height: 1.5;
-        text-wrap: pretty;
-        padding: 8mm 0;
-      }
+      .entry { margin-top: 2.4mm; break-inside: avoid; }
+      .ehead, .phead, .edu, .break { display: flex; justify-content: space-between; align-items: baseline; gap: 5mm; }
+      .org { font-size: 10.4pt; font-weight: 500; color: var(--ink); }
+      .ttl { font-weight: 400; color: var(--body); font-size: 9.6pt; }
+      .ttl::before { content: " — "; color: var(--mut); }
+      .loc { color: var(--mut); font-size: 8.6pt; }
+      .loc::before { content: " · "; }
+      .when { font-size: 8.6pt; color: var(--mut); white-space: nowrap; font-variant-numeric: tabular-nums; }
+      .sub { font-size: 8.8pt; color: var(--mut); margin-top: 0.8mm; }
 
-      .page {
-        width: var(--page-w);
-        min-height: var(--page-h);
-        margin: 0 auto;
-        background: var(--page-bg);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        box-shadow:
-          0 0 0 1px rgba(0, 0, 0, 0.06),
-          0 1px 2px -1px rgba(0, 0, 0, 0.06),
-          0 8px 24px -4px rgba(0, 0, 0, 0.1);
-      }
+      .project { margin-top: 2.6mm; break-inside: avoid; }
+      .pname { font-weight: 500; color: var(--ink); }
+      .pdesc { font-weight: 400; color: var(--body); }
+      .pdesc::before { content: " — "; color: var(--mut); }
 
-      /* ---- masthead ---- */
+      ul { list-style: none; margin-top: 1.2mm; }
+      li { padding-left: 3.2mm; margin-bottom: 0.8mm; }
+      /* Real bullet glyph, inline, so PDF text extraction keeps "• text" on one line. */
+      li::before { content: "•"; display: inline-block; width: 3.2mm; margin-left: -3.2mm; color: #c9c3bf; font-size: 7pt; }
+      .stack { font-size: 8.5pt; color: var(--mut); margin-top: 1mm; padding-left: 3.2mm; }
 
-      .mast {
-        background: var(--ink);
-        color: var(--paper);
-        padding: 10mm var(--pad-x) 8mm;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        gap: 8mm;
-      }
+      .break { margin-top: 2mm; color: var(--mut); font-size: 9pt; }
 
-      h1 {
-        font-family: "PP Editorial New", Georgia, serif;
-        font-size: 30pt;
-        font-weight: 400;
-        line-height: 0.9;
-        letter-spacing: -0.4px;
-        color: #f7ebe8;
-        text-wrap: balance;
-      }
+      .skills { margin-top: 1.6mm; font-size: 9.2pt; }
+      .skills .row { display: grid; grid-template-columns: 24mm 1fr; gap: 0 4mm; margin-bottom: 0.9mm; }
+      .skills dt { font-weight: 500; color: var(--ink); font-size: 8.4pt; }
 
-      h1 .dot {
-        color: var(--acc);
-      }
+      .edu { margin-top: 1.2mm; font-size: 9.2pt; }
+      .edu b { font-weight: 500; color: var(--ink); }
 
-      .role {
-        font-size: 9.4pt;
-        font-weight: 500;
-        color: var(--paper);
-        margin-top: var(--s-2);
-      }
+      /* Things only Fábio can fill in. Remove the <mark> once written. */
+      mark { background: #fff3c4; color: #7a5a10; }
 
-      .whereabouts {
-        font-size: 7.6pt;
-        color: rgba(238, 210, 206, 0.6);
-        margin-top: 0.5mm;
-      }
-
-      .channels {
-        text-align: right;
-        font-size: 7.6pt;
-        line-height: 1.7;
-        white-space: nowrap;
-        color: rgba(238, 210, 206, 0.85);
-      }
-
-      .channels a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .channels a:hover {
-        color: var(--acc);
-      }
-
-      /* ---- body ---- */
-
-      .sheet {
-        flex: 1;
-        padding: 7mm var(--pad-x) 8mm;
-      }
-
-      .pitch {
-        font-size: 10.4pt;
-        line-height: 1.5;
-        color: var(--ink);
-      }
-
-      section {
-        margin-top: var(--s-4);
-      }
-
-      .section-title {
-        display: flex;
-        align-items: center;
-        gap: var(--s-2);
-        font-size: 7.4pt;
-        font-weight: 500;
-        /* Kept low deliberately: at 1.4px Chrome emitted each letter as its own
-           text run, so PDF extraction returned "WO R K" / "S K I L LS" and ATS
-           section detection broke. */
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        color: var(--mut);
-        margin-bottom: var(--s-2);
-      }
-
-      .section-title::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--rule);
-      }
-
-      /* ---- rail ---- */
-
-      .rail {
-        position: relative;
-        padding-left: var(--rail-pad);
-        margin-top: var(--s-3);
-      }
-
-      .rail::before {
-        content: "";
-        position: absolute;
-        left: var(--rail-x);
-        top: 1.6mm;
-        bottom: 2mm;
-        width: 1px;
-        background: var(--rule);
-      }
-
-      .entry {
-        position: relative;
-        margin-bottom: var(--s-4);
-      }
-
-      .entry:last-child {
-        margin-bottom: 0;
-      }
-
-      /* Dot is centred on the rail line: rail-x − half the dot, expressed
-         relative to the entry's own left edge at --rail-pad. */
-      .entry::before {
-        content: "";
-        position: absolute;
-        left: calc(var(--rail-x) - var(--rail-pad) - var(--dot) / 2);
-        top: 1.3mm;
-        width: var(--dot);
-        height: var(--dot);
-        border-radius: 50%;
-        background: var(--acc);
-      }
-
-      /* Hollow dot marks past roles, so the rail itself carries the ranking
-         that a separate "selected work" section used to. */
-      .entry.past::before {
-        background: var(--page-bg);
-        box-shadow: inset 0 0 0 0.5mm #d3cecb;
-      }
-
-      /* Two stacked dates read as an unrelated jumble without a connector —
-         at 12.5mm "Jul 2020" and "Jan 2024" each wrapped mid-date, so the
-         gutter showed four loose numbers. The en-dash before the end date binds
-         start and end into one range; the wider gutter + per-part nowrap keep
-         each date whole on its own line. */
-      .year {
-        position: absolute;
-        left: calc(-1 * var(--rail-pad) - 5mm);
-        top: 0.7mm;
-        width: 17.5mm;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        text-align: right;
-        font-size: 7.2pt;
-        font-weight: 500;
-        line-height: 1.32;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--mut);
-        font-variant-numeric: tabular-nums;
-      }
-
-      .year .ys,
-      .year .ye {
-        white-space: nowrap;
-      }
-
-      .year .ye::before {
-        content: "\00a0\2013\00a0";
-        color: #c3bdb9;
-      }
-
-      /* Coral "now" echoes the filled dot on the rail: both mark a live role,
-         so the two ongoing entries separate at a glance from the closed one. */
-      .year .now {
-        color: var(--acc);
-      }
-
-      .entry-name {
-        font-size: 11.2pt;
-        font-weight: 500;
-        color: var(--ink);
-      }
-
-      /* No underline: the filled coral dot on the rail already marks these two
-         as live, so an accent underline said the same thing twice. */
-      .entry-name a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      @media screen {
-        .entry-name a:hover {
-          color: var(--acc);
-        }
-      }
-
-      /* Role was 8.1pt muted italic — dimmer than the description beneath it,
-         which inverted the hierarchy: job title is one of the few items a
-         6-second scan actually lands on. Now upright, body-coloured, larger. */
-      .entry-kind {
-        font-size: 9.2pt;
-        color: var(--body);
-      }
-
-      .entry-kind::before {
-        content: "·";
-        color: var(--mut);
-        margin: 0 0.4em 0 0.15em;
-      }
-
-      .entry-sub {
-        font-size: 8.6pt;
-        color: var(--mut);
-        margin-top: 1.5mm;
-      }
-
-      ul {
-        list-style: none;
-        margin-top: var(--s-2);
-      }
-
-      li {
-        padding-left: 3.2mm;
-        margin-bottom: var(--s-1);
-      }
-
-      /* A real bullet glyph (not a CSS-drawn dot) so PDF text extraction sees
-         where each bullet starts — ATS parsers split roles and count bullets on
-         the leading marker, and an invisible background dot left them blind. Set
-         inline (not absolute) and hung into the left padding with a negative
-         margin, so it shares the first line's baseline and extracts as part of
-         that line ("• Designed…") rather than as its own orphan line. */
-      li::before {
-        content: "•";
-        display: inline-block;
-        width: 3.2mm;
-        margin-left: -3.2mm;
-        color: #cfcac7;
-        font-size: 7pt;
-      }
-
-      li:last-child {
-        margin-bottom: 0;
-      }
-
-      .stack {
-        font-size: 8pt;
-        color: var(--mut);
-        margin-top: var(--s-2);
-        padding-left: 3.2mm;
-      }
-
-      /* Faint middots match the year range dash, so the whole timeline shares
-         one quiet connector; the tech names read as a single list without a
-         "STACK:" label competing with the role above (Skills already names the
-         toolset — here it is just per-project context). */
-      .stack .sep {
-        color: #c3bdb9;
-      }
-
-      /* The indent exists to align the stack list with bullet text. Past roles
-         are prose with no bullets, so there is nothing to align to — flush left. */
-      .entry:not(:has(ul)) .stack {
-        padding-left: 0;
-      }
-
-      .entry.past .entry-sub {
-        margin-top: 1mm;
-      }
-
-      /* The break is on the rail so the timeline stays unbroken, but it is not
-         a role — no name line, and the note sits flush with its year. */
-      .entry.break {
-        margin-bottom: var(--s-4);
-      }
-
-      .entry.break .entry-note {
-        margin-top: 0;
-        color: var(--mut);
-      }
-
-      /* Past roles state their contribution as prose rather than a one-item
-         bullet list; this reads at the same weight as bullet text. */
-      .entry-note {
-        margin-top: var(--s-2);
-        color: var(--body);
-      }
-
-      /* ---- skills / education ---- */
-
-      .skills {
-        display: grid;
-        grid-template-columns: 23mm 1fr;
-        gap: var(--s-2) var(--s-3);
-        font-size: 9pt;
-      }
-
-      .skills dt {
-        font-weight: 500;
-        color: var(--ink);
-        font-size: 8.1pt;
-      }
-
-      .edu {
-        font-size: 8.9pt;
-      }
-
-      .edu b {
-        font-weight: 500;
-        color: var(--ink);
-      }
-
-      .print-hint {
-        width: var(--page-w);
-        margin: 0 auto 4mm;
-        font-size: 8pt;
-        color: #9a9490;
-        text-align: right;
-      }
-
-      .print-hint kbd {
-        font-family: inherit;
-        background: var(--page-bg);
-        border-radius: 3px;
-        padding: 1px 5px;
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-      }
-
-      /* Scoped to `screen` — the print viewport is 210mm wide, so an unscoped
-         breakpoint would collapse the layout inside the PDF. */
       @media screen and (max-width: 230mm) {
-        body {
-          padding: 0;
-        }
-        .page,
-        .print-hint {
-          width: 100%;
-          min-height: 0;
-          box-shadow: none;
-        }
-        .print-hint {
-          display: none;
-        }
-        :root {
-          --pad-x: 6mm;
-          --rail-x: 0mm;
-          --rail-pad: 5mm;
-        }
-        .mast {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: var(--s-2);
-          padding: 8mm 6mm;
-        }
-        .channels {
-          text-align: left;
-        }
-        .rail::before {
-          display: none;
-        }
-        .entry::before {
-          display: none;
-        }
-        .year {
-          position: static;
-          width: auto;
-          text-align: left;
-          display: block;
-          margin-bottom: 0.8mm;
-        }
-        /* No rail in this view, so the range collapses onto one inline line. */
-        .year .ye::before {
-          color: var(--mut);
-        }
-        .skills {
-          grid-template-columns: 1fr;
-          gap: var(--s-1) 0;
-        }
-        .skills dd {
-          margin-bottom: var(--s-2);
-        }
+        body { padding: 0; }
+        .download { width: 100%; padding: 3mm 6mm; margin-bottom: 0; }
+        .cv { width: 100%; min-height: 0; padding: 8mm 6mm; box-shadow: none; }
+        .head, .ehead, .phead, .edu, .break { flex-direction: column; align-items: flex-start; gap: 1mm; }
+        .contacts { text-align: left; white-space: normal; }
+        .skills .row { grid-template-columns: 1fr; }
       }
-
-      @page {
-        size: A4;
-        margin: 0;
-      }
-
+      @page { size: A4; margin: 0; }
       @media print {
-        /* Without this the ink masthead and coral accents drop out — browsers
-           strip backgrounds when printing by default. */
-        html,
-        body {
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-          background: #fff;
-          padding: 0;
-        }
-        .page {
-          width: 210mm;
-          height: 297mm;
-          box-shadow: none;
-          margin: 0;
-        }
-        .print-hint {
-          display: none;
-        }
-        .entry {
-          break-inside: avoid;
-        }
-        a {
-          text-decoration: none;
-        }
+        html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #fff; padding: 0; }
+        .cv { box-shadow: none; margin: 0; min-height: 0; }
+        .download { display: none; }
+        a { text-decoration: none; }
       }
     </style>
   </head>
   <body>
-    <p class="print-hint">
-      A4 &middot; save as PDF with <kbd>&#8984;</kbd> <kbd>P</kbd>
-    </p>
-
-    <div class="page">
-      <header class="mast">
+    <nav class="download" aria-label="CV download"><a href="fabio-galiano-cv.pdf" download>Download CV (PDF)</a></nav>
+    <main class="cv">
+      <header class="head">
         <div>
-          <h1>fábio galiano<span class="dot">.</span></h1>
-          <div class="role">fullstack product engineer</div>
-          <div class="whereabouts">Portugal &middot; open to relocate</div>
+          <h1>Fábio Galiano</h1>
+          <div class="headline">Software Engineer · TypeScript, React &amp; Vue</div>
+          <div class="where">Portugal · EU citizen · open to relocation within the EU</div>
         </div>
-        <div class="channels">
-          <div>
-            <a href="mailto:work@fabiogaliano.com">work@fabiogaliano.com</a>
-          </div>
+        <div class="contacts">
+          <div><a href="mailto:work@fabiogaliano.com">work@fabiogaliano.com</a></div>
           <div><a href="https://fabiogaliano.com">fabiogaliano.com</a></div>
-          <div>
-            <a href="https://github.com/fabiogaliano"
-              >github.com/fabiogaliano</a
-            >
-          </div>
-          <div>
-            <a href="https://linkedin.com/in/fabiogaliano"
-              >linkedin.com/in/fabiogaliano</a
-            >
-          </div>
+          <div><a href="https://github.com/fabiogaliano">github.com/fabiogaliano</a></div>
+          <div><a href="https://linkedin.com/in/fabiogaliano">linkedin.com/in/fabiogaliano</a></div>
         </div>
       </header>
 
-      <div class="sheet">
-        <p class="pitch">
-          I build and run whole products, from the first idea to daily use. I
-          talk to users, design, and engineer the full stack and infrastructure.
-          Two are live today: Tourflow, the software two tour companies run
-          their daily operations on, and hearted, an AI music product that
-          organizes a listener's Spotify library. Before, I
-          spent three and a half years at Mercedes-Benz.io, building their Me
-          portal for vehicle owners.
-        </p>
+      <p class="summary">
+        Software engineer with 5+ years of TypeScript experience, including 3.5 years on Mercedes me at Mercedes-Benz.io.
+        Built operations, booking and payment systems for two Lisbon tour operators.
+      </p>
 
-        <section>
-          <h2 class="section-title">Experience</h2>
-          <div class="rail">
-            <div class="entry">
-              <span class="year"
-                ><span class="ys">2026</span
-                ><span class="ye now">now</span></span
-              >
-              <div>
-                <span class="entry-name"
-                  ><a href="https://hearted.music">hearted.music</a></span
-                >
-                <span class="entry-kind">Product engineer · own product</span>
-              </div>
-              <p class="entry-sub">
-                Consumer AI app for curating a Spotify library.
-              </p>
-              <ul>
-                <li>
-                  Designed a matching engine that uses an LLM to profile each
-                  song from its lyrics, then matches it against playlists — each
-                  an aggregate of its songs plus a natural-language intent — with
-                  a deterministic weighted score over embeddings, audio features,
-                  and genre.
-                </li>
-                <li>
-                  Operate it solo in production: an edge app on Cloudflare
-                  Workers, a background worker for the song enrichment pipeline,
-                  and self-hosted Postgres that is also the job queue.
-                </li>
-              </ul>
-              <p class="stack">
-                TypeScript <span class="sep">·</span> React 19
-                <span class="sep">·</span> TanStack Start
-                <span class="sep">·</span> Cloudflare Workers
-                <span class="sep">·</span> Bun
-                <span class="sep">·</span> Postgres + pgvector
-                <span class="sep">·</span> Vercel AI SDK
-                <span class="sep">·</span> Stripe
-              </p>
-            </div>
+      <h2>Experience</h2>
 
-            <div class="entry">
-              <span class="year"
-                ><span class="ys">Jan 2025</span
-                ><span class="ye now">now</span></span
-              >
-              <div>
-                <span class="entry-name"
-                  ><a href="https://tourflow.pt">tourflow.pt</a></span
-                >
-                <span class="entry-kind"
-                  >Product engineer · client product</span
-                >
-              </div>
-              <p class="entry-sub">
-                Operations software for tour operators.
-              </p>
-              <ul>
-                <li>
-                  Turned a booking-site contract into the operations platform
-                  two tour companies now run on daily: driver scheduling, trip
-                  logs, commissions, settlements, and client payments, with
-                  push notifications on a PWA.
-                </li>
-                <li>
-                  Migrated the site from Wix to Astro, quadrupling booking
-                  conversion and making pages load 10x faster, served on
-                  Cloudflare.
-                </li>
-              </ul>
-              <p class="stack">
-                TypeScript <span class="sep">·</span> React 19
-                <span class="sep">·</span> TanStack Router
-                <span class="sep">·</span> Astro
-                <span class="sep">·</span> PocketBase
-                <span class="sep">·</span> SQLite
-                <span class="sep">·</span> Stripe <span class="sep">·</span>
-                Docker
-              </p>
-            </div>
+      <div class="entry">
+        <div class="ehead">
+          <span><span class="org">Independent Product Engineer<span class="ttl">Freelance</span></span></span>
+          <span class="when">Nov 2024 – present</span>
+        </div>
+        <p class="sub">Owned Tourflow end to end, from product design to production.</p>
 
-            <div class="entry past break">
-              <span class="year"><span class="ys">2024</span></span>
-              <p class="entry-note">
-                Career break: I stopped for a year to rest and figure out what
-                I actually wanted going forward.
-              </p>
-            </div>
-
-            <div class="entry past">
-              <span class="year"
-                ><span class="ys">Jul 2020</span
-                ><span class="ye">Jan 2024</span></span
-              >
-              <div>
-                <span class="entry-name">Mercedes-Benz.io</span>
-                <span class="entry-kind">Frontend developer</span>
-              </div>
-              <p class="entry-sub">
-                Mercedes Me, the customer portal for vehicle owners,
-                made at their digital product company.
-              </p>
-              <ul>
-                <li>
-                  Built the portal's micro-frontends from scratch in Vue 2,
-                  replacing the legacy Angular app, then migrated everything to
-                  Vue 3 alongside continuous feature work, refactoring, and
-                  performance improvements.
-                </li>
-              </ul>
-              <p class="stack">
-                Vue 2/3 <span class="sep">·</span> Redux
-                <span class="sep">·</span> Lerna <span class="sep">·</span> Vite
-              </p>
-            </div>
+        <div class="project">
+          <div class="phead">
+            <span class="pname">Tourflow<span class="pdesc">tourflow.pt</span></span>
           </div>
-        </section>
+          <ul>
+            <li>Built a PWA that both operators use to run their daily operations, with driver scheduling, trip logs, automated commissions and settlements, Stripe payments and a partner portal.</li>
+          </ul>
+          <p class="stack">React · TanStack Router / Query · PocketBase / SQLite · Stripe · Docker</p>
+        </div>
 
-        <section>
-          <h2 class="section-title">Skills</h2>
-          <dl class="skills">
-            <dt>Product</dt>
-            <dd>
-              End-to-end ownership · customer discovery &amp; scoping · UI/UX
-            </dd>
-
-            <dt>AI</dt>
-            <dd>
-              Multi-provider LLM pipelines · embeddings &amp; pgvector · prompt
-              &amp; evaluation iteration · agentic coding workflows
-            </dd>
-
-            <dt>Engineering</dt>
-            <dd>
-              TypeScript · React · Vue · Node · Bun · TanStack · Tailwind ·
-              Postgres · SQLite · Docker · Cloudflare Workers · Playwright
-            </dd>
-          </dl>
-        </section>
-
-        <section>
-          <h2 class="section-title">Education</h2>
-          <div class="edu">
-            <b>BSc Computer Engineering</b> · Universidade Autónoma de Lisboa,
-            Lisbon · exchange semester at AGH Kraków, Poland
+        <div class="project">
+          <div class="phead">
+            <span class="pname">Tour websites &amp; booking</span>
           </div>
-        </section>
+          <ul>
+            <li>Developed lisbonvintagetours.com and rebuilt mazetours.com from its existing design. Created a custom booking flow for Lisbon Vintage Tours using Cal.com, then introduced my own open-source booking engine, Reserva, on both sites.</li>
+            <li>After launch, daily bookings at Lisbon Vintage Tours rose 2.6×. Maze Tours received 10 bookings in the first two months, compared with 2 in the previous years.</li>
+          </ul>
+          <p class="stack">Astro · TypeScript · Tailwind · Cloudflare Workers / D1 · Stripe</p>
+        </div>
+
       </div>
-    </div>
+
+      <div class="break"><span>Career break</span><span class="when">Feb – Aug 2024</span></div>
+
+      <div class="entry">
+        <div class="ehead">
+          <span><span class="org">Mercedes-Benz.io<span class="ttl">Frontend Developer</span></span><span class="loc">Lisbon</span></span>
+          <span class="when">Jul 2020 – Jan 2024</span>
+        </div>
+        <p class="sub">Worked in a team of 10–12 on Mercedes me account and vehicle features, delivered as Vue web components on the global Mercedes-Benz site.</p>
+        <ul>
+          <li>Implemented vehicle, profile, settings and payment-method management features in the micro-frontends that replaced the legacy Angular portal.</li>
+          <li>Owned translation tooling and GA4 event tracking across the components.</li>
+          <li>Contributed to the Vue 2 → 3 and Redux → Pinia migrations and a shared component library while continuing to ship features.</li>
+          <li>Intern from Jul 2020, Frontend Developer from Oct 2020.</li>
+        </ul>
+        <p class="stack">Vue 2/3 · TypeScript · Redux → Pinia · Web Components · Jest · GitHub Actions</p>
+      </div>
+
+      <h2>Selected projects</h2>
+
+      <div class="project">
+        <div class="phead">
+          <span class="pname">Reserva<span class="pdesc">open-source booking engine</span></span>
+          <span class="when">Jul 2026 – present</span>
+        </div>
+        <ul>
+          <li>Developed an open-source booking engine for Astro, with capacity-based availability, Stripe Checkout and an operator dashboard.</li>
+        </ul>
+        <p class="stack">TypeScript · Astro · Cloudflare Workers + D1 · Stripe · <a href="https://github.com/fabiogaliano/reserva">github.com/fabiogaliano/reserva</a></p>
+      </div>
+
+      <div class="project">
+        <div class="phead">
+          <span class="pname">hearted.music<span class="pdesc">open-source music discovery</span></span>
+          <span class="when">Sep 2024 – present</span>
+        </div>
+        <ul>
+          <li>Organizes Spotify libraries into playlists using LLM-generated song profiles, embeddings and audio features. Evaluated prompts using LLM judges, pairwise comparisons and statistical significance tests.</li>
+        </ul>
+        <p class="stack">React · TanStack Start · Bun · Postgres + pgvector · Vercel AI SDK · <a href="https://github.com/fabiogaliano/hearted.music">github.com/fabiogaliano/hearted.music</a></p>
+      </div>
+
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div class="row"><dt>Frontend</dt><dd>TypeScript, React 19, Vue 2/3, TanStack Router / Start / Query, Astro, Tailwind, Vite, PWA</dd></div>
+        <div class="row"><dt>Backend</dt><dd>Node, Bun, Hono, Postgres + pgvector, SQLite, PocketBase, Stripe, Better Auth</dd></div>
+        <div class="row"><dt>Infra &amp; testing</dt><dd>Cloudflare (Workers, Pages, D1), Docker, GitHub Actions, Sentry, PostHog, Vitest, Playwright</dd></div>
+        <div class="row"><dt>AI</dt><dd>Vercel AI SDK, embeddings, LLM evaluations, AI-assisted development with tests and review</dd></div>
+        <div class="row"><dt>Spoken</dt><dd>Portuguese (native), English (C2)</dd></div>
+      </dl>
+
+      <h2>Education</h2>
+      <div class="edu"><span><b>BSc Computer Engineering</b> · Universidade Autónoma de Lisboa · exchange semester at AGH University, Kraków</span></div>
+    </main>
+
   </body>
 </html>

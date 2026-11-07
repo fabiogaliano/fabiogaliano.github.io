@@ -13,7 +13,7 @@ const HTML = `${ROOT}index.html`;
 const OUT = `${ROOT}fabio-galiano-cv.pdf`;
 
 const AUTHOR = 'Fábio Galiano';
-const TITLE = 'Fábio Galiano — Fullstack Product Engineer';
+const TITLE = 'Fábio Galiano — Software Engineer';
 
 async function findChrome(): Promise<string | null> {
 	const apps = [
